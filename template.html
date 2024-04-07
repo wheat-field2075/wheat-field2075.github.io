@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <title>{{ name }}</title>
+
+    <meta name="author" content="{{ name }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+    <link rel="icon" href="static/favicon.svg" type="image/svg+xml" />
+  </head>
+
+  <body>
+    <table
+      style="
+        width: 100%;
+        max-width: 800px;
+        border: 0px;
+        border-spacing: 0px;
+        border-collapse: separate;
+        margin-right: auto;
+        margin-left: auto;
+      "
+    >
+      <tbody>
+        <tr style="padding: 0px">
+          <td style="padding: 0px">
+            <table
+              style="
+                width: 100%;
+                border: 0px;
+                border-spacing: 0px;
+                border-collapse: separate;
+                margin-right: auto;
+                margin-left: auto;
+              "
+            >
+              <tbody>
+                <tr style="padding: 0px">
+                  <td style="padding: 2.5%; width: 63%; vertical-align: middle">
+                    <p style="text-align: center">
+                    <name>{{ name }}</name>
+                    </p>
+{% markdown %}
+{{ bio }}
+{% endmarkdown %}
+</p>
+                    <p style="text-align: center">
+                    <a href="mailto:{{ email }}">Email</a>
+                      &nbsp/&nbsp
+                      <a href="{{ cv }}">CV</a>
+                      &nbsp/&nbsp
+                      <!-- <a href="data/JonBarron-bio.txt">Bio</a> &nbsp/&nbsp -->
+                      <!-- <a href="https://scholar.google.com/citations?hl=en&user=jktWnL8AAAAJ">Google Scholar</a> &nbsp/&nbsp -->
+                      <!-- <a href="https://twitter.com/jon_barron">Twitter</a> &nbsp/&nbsp -->
+                      <a href="{{ github }}">Github</a>
+                    </p>
+                  </td>
+                  <td style="padding: 2.5%; width: 30%; max-width: 30%" class="content-to-hide">
+                    <img
+                      style="width: 100%; max-width: 100%"
+                      alt="profile photo"
+                      src="{{ mugshot }}"
+                      class="hoverZoomLink"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table
+              style="
+                width: 100%;
+                border: 0px;
+                border-spacing: 0px;
+                border-collapse: separate;
+                margin-right: auto;
+                margin-left: auto;
+              "
+            >
+              <tbody>
+                <tr>
+                  <!-- <td style="padding:20px;width:100%;vertical-align:middle"> -->
+                  <heading>Publications</heading>
+                </tr>
+              </tbody>
+            </table>
+            <table
+              style="
+                width: 100%;
+                border: 0px;
+                border-spacing: 0px;
+                border-collapse: separate;
+                margin-right: auto;
+                margin-left: auto;
+              "
+            >
+              <tbody>
+                {% for publication in publications %}
+                {% if publication.video or publication.image_bg %}
+                <tr onmouseout="{{ publication.hash }}_stop()" onmouseover="{{ publication.hash }}_start()">
+                {% else %}
+                <tr>
+                {% endif %}
+                  <td style="padding: 20px; width: 25%; vertical-align: middle" class="content-to-hide">
+                  {% if publication.video or publication.image_bg %}
+                    <div class="one">
+                      <div class="two" id="{{ publication.hash }}_image">
+                        {% if publication.video %}
+                        <video width="100%" height="100%" muted autoplay loop>
+                          <source
+                            src="{{ publication.video }}"
+                            type="video/{{ publication.video.split('.')[-1] }}"
+                          />
+                          Your browser does not support the video tag.
+                        </video>
+                        {% else %}
+                        <img
+                          src="{{ publication.image_bg }}"
+                          width="160"
+                        />
+                        {% endif %}
+                      </div>
+                      <img
+                        src="{{ publication.image }}"
+                        width="160"
+                      />
+                    </div>
+                    <script type="text/javascript">
+                      function {{ publication.hash }}_start() {
+                        let elem = document.getElementById(
+                          "{{ publication.hash }}_image",
+                        );
+                        elem.style.opacity = "1";
+                      }
+
+                      function {{ publication.hash }}_stop() {
+                        let elem = document.getElementById(
+                          "{{ publication.hash }}_image",
+                        );
+                        elem.style.opacity = "0";
+                      }
+                      {{ publication.hash }}_stop();
+                    </script>
+                    {% else %}
+                    <img
+                      src="{{ publication.image }}"
+                      width="160"
+                    />
+                    {% endif %}
+                  </td>
+                  <td style="padding: 20px; width: 75%; vertical-align: middle">
+
+{% markdown %}
+**{{ publication.name }}**<br>
+<span class="authors">{{ publication.authors }}</span>
+{% if publication.venue %}<br>_{{ publication.venue }}_{% endif %}<br>{{ publication.link }}
+{% endmarkdown %}
+                  </td>
+                </tr>
+                {% endfor %}
+
+                <table
+                  style="
+                    width: 100%;
+                    border: 0px;
+                    border-spacing: 0px;
+                    border-collapse: separate;
+                    margin-right: auto;
+                    margin-left: auto;
+                  "
+                >
+                  <br>
+                  <tbody>
+                    <tr>
+                      <!-- <td style="padding:20px;width:100%;vertical-align:middle"> -->
+                      <heading>Projects</heading>
+                    </tr>
+                    <br><br>
+                    <tr>
+                      {% for category in categories %}
+                      <a href="#" class="category-link {% if loop.first %}active{% endif %}" category="{{ category.hash }}">{{ category.name }}</a> 
+                      {% endfor %}
+                    </tr>
+                    <script type="text/javascript">
+                    const categoryLinks = document.querySelectorAll('.category-link');
+                    function toggleCategory(categoryHash) {
+                      const categoryLinks = document.querySelectorAll('.category-link');
+                      const categoryBodies = document.querySelectorAll('.category-body');
+
+                      categoryLinks.forEach(link => {
+                        const linkCategoryHash = link.getAttribute('category');
+                        if (linkCategoryHash === categoryHash) {
+                          link.classList.add('active');
+                        } else {
+                          link.classList.remove('active');
+                        }
+                      });
+
+                      categoryBodies.forEach(body => {
+                        const bodyCategoryHash = body.getAttribute('category');
+                        if (bodyCategoryHash === categoryHash) {
+                          body.classList.add('active');
+                        } else {
+                          body.classList.remove('active');
+                        }
+                      });
+                    }
+                      
+                    categoryLinks.forEach(link => {
+                      link.addEventListener('click', function(e) {
+                        e.preventDefault(); // Prevent the default link behavior
+                        const categoryHash = this.getAttribute('category');
+                        toggleCategory(categoryHash);
+                      });
+                    });
+                    </script>
+                  </tbody>
+                </table>
+                <table
+                  style="
+                    width: 100%;
+                    border: 0px;
+                    border-spacing: 0px;
+                    border-collapse: separate;
+                    margin-right: auto;
+                    margin-left: auto;
+                  "
+                >
+                {% for category in categories %}
+                <tbody class="category-body {% if loop.first %}active{% endif %}" category="{{ category.hash }}">
+                {% for project in category.projects %}
+                {% if project.video or project.image_bg %}
+                <tr onmouseout="{{ project.hash }}_stop()" onmouseover="{{ project.hash }}_start()">
+                {% else %}
+                <tr>
+                {% endif %}
+                  <td style="padding: 20px; width: 25%; vertical-align: middle" class="content-to-hide">
+                  {% if project.video or project.image_bg %}
+                    <div class="one">
+                      <div class="two" id="{{ project.hash }}_image">
+                        {% if project.video %}
+                        <video width="100%" height="100%" muted autoplay loop>
+                          <source
+                            src="{{ project.video }}"
+                            type="video/{{ project.video.split('.')[-1] }}"
+                          />
+                          Your browser does not support the video tag.
+                        </video>
+                        {% else %}
+                        <img
+                          src="{{ project.image_bg }}"
+                          width="160"
+                        />
+                        {% endif %}
+                      </div>
+                      <img
+                        src="{{ project.image }}"
+                        width="160"
+                      />
+                    </div>
+                    <script type="text/javascript">
+                      function {{ project.hash }}_start() {
+                        let elem = document.getElementById(
+                          "{{ project.hash }}_image",
+                        );
+                        elem.style.opacity = "1";
+                      }
+
+                      function {{ project.hash }}_stop() {
+                        let elem = document.getElementById(
+                          "{{ project.hash }}_image",
+                        );
+                        elem.style.opacity = "0";
+                      }
+                      {{ project.hash }}_stop();
+                    </script>
+                    {% else %}
+                    <img
+                      src="{{ project.image }}"
+                      width="160"
+                    />
+                    {% endif %}
+                  </td>
+                  <td style="padding: 20px; width: 75%; vertical-align: middle">
+
+{% markdown %}
+**{{ project.name }}**<br>
+{% if project.link %}{{ project.link }}<br>{% endif %}
+
+{{ project.desc }}
+{% endmarkdown %}
+                  </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+                {% endfor %}
+
+                    <table
+                      style="
+                        width: 100%;
+                        border: 0px;
+                        border-spacing: 0px;
+                        border-collapse: separate;
+                        margin-right: auto;
+                        margin-left: auto;
+                      "
+                    >
+                      <tbody>
+                        <tr>
+                          <td style="padding: 0px">
+                            <br />
+                            <p style="text-align: center; font-size: small">
+                              Source adapted from
+                              <a
+                                style="font-size: small"
+                                href="https://jonbarron.info"
+                                >Jon Barron's website</a
+                              >
+                            </p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </tbody>
+                </table>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
