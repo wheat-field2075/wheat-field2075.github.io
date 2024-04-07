@@ -29,15 +29,6 @@ def template_hash(data):
         hash = get_hash(publication["name"])
         assert hash not in hashes, "hash collision"
         publication["hash"] = hash
-    for category in data["categories"]:
-        category_hash = get_hash(category["name"])
-        assert category_hash not in hashes, "hash collision"
-        category["hash"] = category_hash
-        for project in category["projects"]:
-            hash = get_hash(project["name"])
-            assert hash not in hashes, "hash collision"
-            project["hash"] = hash
-
 
 
 data = yaml.load(open("data.yaml"), Loader=yaml.FullLoader)

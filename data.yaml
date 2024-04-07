@@ -4,30 +4,22 @@ cv: static/Jason_Adhinarta_CV.pdf
 github: https://github.com/jasonkena/
 mugshot: static/mugshot.png
 
-bio: |
-I am a third-year undergaduate at [Boston College](https://www.bc.edu/) pursuing degrees in Computer Science and Mathematics. I am fortunate to work under [Professor Donglai Wei](https://donglaiw.github.io/) in the BC Computer Vision Lab, focusing primarily on solving segmentation tasks in support of the natural sciences.
+bio: | 
+  I am a third-year undergaduate at [Boston College](https://www.bc.edu/) pursuing degrees in Computer Science and Mathematics. I am fortunate to work under [Professor Donglai Wei](https://donglaiw.github.io/) in the BC Computer Vision Lab, focusing primarily on solving segmentation tasks in support of the natural sciences."
 
   Around campus, I have established myself as a regular at the [BC Machine Intelligence Group](https://github.com/BCMIG) and competed in the BC Competitive Programming Team for two years. In addition, I have served as a teaching assistant for the Biomedical Image Analysis class in the BC Computer Science department.
 
   I currently work on vesicle segmentation in electron microscopy (EM) images, as well as help maintain documentation for the [PyTorch Connectomics](https://connectomics.readthedocs.io/en/latest/) project. Previosuly, I collaborated with [Professor Yu-Tsun Shao](https://viterbi.usc.edu/directory/faculty/Shao/Yu--Tsun) on the automated segmentation of merons and antimerons in EM images.
   
 people:
-  - 
+  -
     name: jadhinarta
     link: "**Jason K. Adhinarta**"
 
 publications:
   - name: "TriSAM: Tri-Plane SAM for zero-shot cortical blood vessel segmentation in VEM images"
     authors:
-      - jwan
-      - wli
-      - abanerjee
       - jadhinarta
-      - esjostedt
-      - jwu
-      - jlichtman
-      - hpfister
-      - dwei
     link: "[preprint](https://arxiv.org/abs/2401.13961v1)"
     image: static/trisam.jpg
     video: static/trisam.mp4
