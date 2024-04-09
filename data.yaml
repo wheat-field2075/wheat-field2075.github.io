@@ -1,8 +1,8 @@
 name: Michael Lin
 email: michael.lin2k21@bc.edu
-cv: static/Jason_Adhinarta_CV.pdf
-github: https://github.com/jasonkena/
-mugshot: static/mugshot.png
+resume: static/linok_resume.pdf
+github: https://github.com/wheat-field2075 
+mugshot: static/linok_pfp.png
 
 bio: | 
   I am a third-year undergaduate at [Boston College](https://www.bc.edu/) pursuing degrees in Computer Science and Mathematics. I am fortunate to work under [Professor Donglai Wei](https://donglaiw.github.io/) in the BC Computer Vision Lab, focusing primarily on solving segmentation tasks in support of the natural sciences."
@@ -13,13 +13,49 @@ bio: |
   
 people:
   -
-    name: jadhinarta
-    link: "**Jason K. Adhinarta**"
+    name: mlin
+    link: "**Michael Lin**"
+  -
+    name: ynahas
+    link: "[Yousra Nahas](https://physics.uark.edu/directory/index.php?uid=ynahas)"
+  -
+    name: sprokh
+    link: "[Sergei Prokhorenko](https://physics.uark.edu/directory/index.php?uid=sprokhor)"
+  -
+    name: sdas
+    link: "[Sujit Das](https://mrc.iisc.ac.in/sujit-das/)"
+  -
+    name: rxu
+    link: "[Ruijuan Xu](https://www.mse.ncsu.edu/people/rxu22/)"
+  - 
+    name: hhwang
+    link: "[Harold Y. Hwang](https://profiles.stanford.edu/harold-hwang)"
+  -
+    name: rrames
+    link: "[Ramamoorthy Ramesh](https://profiles.rice.edu/faculty/ramamoorthy-ramesh)"
+  -
+    name: dmulle
+    link: "[David A. Muller](https://www.engineering.cornell.edu/faculty-directory/david-anthony-muller)"
+  -
+    name: yshao
+    link: "[Yu-Tsun Shao](https://viterbi.usc.edu/directory/faculty/Shao/Yu--Tsun)"
+  -
+    name: dwei
+    link: "[Donglai Wei](https://donglaiw.github.io/)"
 
 publications:
-  - name: "TriSAM: Tri-Plane SAM for zero-shot cortical blood vessel segmentation in VEM images"
+  - name: "Real-time Point of Interest Segmentation for Electron Microscopy Images via Machine Learning"
     authors:
-      - jadhinarta
-    link: "[preprint](https://arxiv.org/abs/2401.13961v1)"
-    image: static/trisam.jpg
-    video: static/trisam.mp4
+      - mlin
+      - ynahas
+      - sprokh
+      - sdas
+      - rxu
+      - hhwang
+      - rrames
+      - dmulle
+      - yshao
+      - dwei
+    link: "[abstract](static/paper_merons.pdf)"
+    image: static/image_merons.png
+    video: static/video_merons.mp4
