@@ -57,5 +57,18 @@ publications:
       - yshao
       - dwei
     link: "[abstract](static/paper_merons.pdf)"
-    image: static/image_merons.png
-    video: static/video_merons.mp4
+    image: static/paper_merons_image.png
+    video: static/paper_merons_video.mp4
+
+categories:
+  -
+    name: Current
+    projects:
+      -
+        name: "Pytorch Connectomics"
+        image: static/project_pytc_image.jpg
+        desc: "Headed onboarding process for team of computer science undergraduates; tested and maintained docuemntation for public release"
+      -
+        name: "Columbia Hydra Project"
+        image: static/project_hydra_image.jpg
+        desc: "Worked on segmentation of vesicles in EM images of the neurons of *Hydra vulgaris*"
