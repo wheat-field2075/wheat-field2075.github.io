@@ -67,7 +67,7 @@ categories:
       -
         name: "Pytorch Connectomics"
         image: static/project_pytc_image.jpg
-        desc: "Headed onboarding process for team of computer science undergraduates; tested and maintained docuemntation for public release"
+        desc: "Headed onboarding process for team of computer science undergraduates; tested and maintained documentation for public release"
       -
         name: "Columbia Hydra Project"
         image: static/project_hydra_image.jpg
